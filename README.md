@@ -44,7 +44,7 @@ In your main project's `package.json`:
 }
 ```
 
-## Use the dependency
+### Use the dependency
 
 In your main projects Terraform file(s):
 ```

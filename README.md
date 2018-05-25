@@ -25,4 +25,4 @@ module "mymodule" {
 }
 ```
 
-And lastly, you need to include the code zip file for your module into the npm package. You should likely setup an automated pipeline for building, packaging and publishing your module. In this case we have a manual [`mymodule/build.sh`](mymodule/build.sh).
+And lastly, you need to make sure the code ZIP file for your module is included in the published npm package. You should likely setup an automated pipeline for building, packaging and publishing your module. In this case we have an overly simple manual script [`mymodule/build.sh`](mymodule/build.sh).

@@ -1,7 +1,7 @@
 # Sharing infrastructure modules with Terraform and npm
 
-This is a small demo of how you can share infrastructure pieces with other projects that contain code and infrastructure.
-You can share both infrastructure definitions and code in a single package. In this case we're sharing a simple Lambda that comes pre packaged with some code.
+This is a small demo of how you can share both infrastructure and code pieces with other projects in one single npm package.
+In this case we're sharing a simple Lambda that comes pre packaged with some code.
 
 ```
 Separate projects:

@@ -15,6 +15,26 @@ Demo directories:
 
 Below is a summary of how sharing an infrastructure package with Lambda works:
 
+### Set paths properly for non-TF files
+
+In your shareable module's TF file(s), use `path.module` to access additional files.
+```
+filename = "${path.module}/code.zip"
+```
+
+### Package and publish your module
+
+Make sure the addition files (e.g. code ZIP package) for your module are included in the published npm package. You should likely setup an automated pipeline for building, packaging and publishing your module. In this demo we have an overly simple manual script [`mymodule/build.sh`](mymodule/build.sh) that is run before publishing.
+
+In your shareable module's `package.json`:
+```
+"scripts": {
+    "prepublishOnly": "bash ./build.sh"
+}
+```
+
+### Specify your dependency
+
 In your main project's `package.json`:
 ```
 "dependencies": {
@@ -22,18 +42,11 @@ In your main project's `package.json`:
 }
 ```
 
+## Use the dependency
+
 In your main projects Terraform file(s):
 ```
 module "mymodule" {
     source = "node_modules/mymodule"
-}
-```
-
-And lastly, you need to make sure the code ZIP file for your module is included in the published npm package. You should likely setup an automated pipeline for building, packaging and publishing your module. In this demo we have an overly simple manual script [`mymodule/build.sh`](mymodule/build.sh) that is run before publishing.
-
-In your shareable module's `package.json`:
-```
-"scripts": {
-    "prepublishOnly": "bash ./build.sh"
 }
 ```

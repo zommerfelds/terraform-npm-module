@@ -13,15 +13,15 @@ The main parts to get this to work are:
 
 In your main project's `package.json`:
 ```
-  "dependencies": {
+"dependencies": {
     "mymodule": "your version"
-  },
+}
 ```
 
 In your main projects Terraform file(s):
 ```
 module "mymodule" {
-  source = "node_modules/mymodule"
+    source = "node_modules/mymodule"
 }
 ```
 
@@ -29,5 +29,7 @@ And lastly, you need to make sure the code ZIP file for your module is included 
 
 In your shareable module's `package.json`:
 ```
-  "prepublishOnly": "bash ./build.sh"
+"scripts": {
+    "prepublishOnly": "bash ./build.sh"
+}
 ```

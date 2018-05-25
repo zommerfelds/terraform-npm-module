@@ -24,3 +24,5 @@ module "mymodule" {
   source = "node_modules/mymodule"
 }
 ```
+
+And lastly, you need to include the code zip file for your module into the npm package. You should likely setup an automated pipeline for building, packaging and publishing your module. In this case we have a manual [`mymodule/build.sh`](mymodule/build.sh).

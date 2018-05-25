@@ -3,13 +3,17 @@
 This is a small demo of how you can share both infrastructure and code pieces with other projects in one single npm package.
 In this case we're sharing a simple AWS Lambda that comes pre packaged with some code.
 
+NOTE: You should also check out the [Terraform registry](https://www.terraform.io/docs/registry/modules/publish.html). npm might be useful if you already have a private repository set up or don't want to deal with a separate registry.
+
 ```
 Demo directories:
     mymain/    => this would be your main project
     mymodule/  => this would be a separate project that is published to npm
 ```
 
-The main parts to get this to work are:
+## How does it work
+
+Below is a summary of how sharing an infrastructure package with Lambda works:
 
 In your main project's `package.json`:
 ```
